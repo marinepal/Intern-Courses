@@ -7,13 +7,14 @@
 # but you will have to know how to use the functions
 # (so be sure to read the docstrings!)
 
-import random
-import string
+from random import choice
+from string import ascii_lowercase
+from typing import List
 
 WORDLIST_FILENAME = "words.txt"
 
 
-def loadWords():
+def loadWords() -> List:
     """
     Returns a list of valid words. Words are strings of lowercase letters.
     
@@ -31,13 +32,13 @@ def loadWords():
     return wordlist
 
 
-def chooseWord(wordlist):
+def chooseWord(wordlist: List) -> str:
     """
     wordlist (list): list of words (strings)
 
     Returns a word from wordlist at random
     """
-    return random.choice(wordlist)
+    return choice(wordlist)
 
 
 # end of helper code
@@ -48,7 +49,7 @@ def chooseWord(wordlist):
 wordlist = loadWords()
 
 
-def isWordGuessed(secretWord, lettersGuessed):
+def isWordGuessed(secretWord: str, lettersGuessed: str) -> bool:
     '''
     secretWord: string, the word the user is guessing
     lettersGuessed: list, what letters have been guessed so far
@@ -61,7 +62,7 @@ def isWordGuessed(secretWord, lettersGuessed):
     return True
 
 
-def getGuessedWord(secretWord, lettersGuessed):
+def getGuessedWord(secretWord: str, lettersGuessed: str) -> str:
     '''
     secretWord: string, the word the user is guessing
     lettersGuessed: list, what letters have been guessed so far
@@ -71,16 +72,16 @@ def getGuessedWord(secretWord, lettersGuessed):
     return "".join([letter if letter in lettersGuessed else '_' for letter in secretWord])
 
 
-def getAvailableLetters(lettersGuessed):
+def getAvailableLetters(lettersGuessed: str) -> str:
     '''
     lettersGuessed: list, what letters have been guessed so far
     returns: string, comprised of letters that represents what letters have not
       yet been guessed.
     '''
-    return "".join(letter for letter in string.ascii_lowercase if letter not in lettersGuessed)
+    return "".join(letter for letter in ascii_lowercase if letter not in lettersGuessed)
 
 
-def hangman(secretWord):
+def hangman(secretWord: str) -> None:
     '''
     secretWord: string, the secret word to guess.
 

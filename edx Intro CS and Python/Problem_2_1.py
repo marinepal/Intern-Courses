@@ -6,7 +6,7 @@ monthlyInterestRate = annualInterestRate / 12.0
 # prevBalance = balance
 for i in range(12):
     balance = balance * (1 - monthlyPaymentRate) * (monthlyInterestRate + 1)
-    # IMHO, keeping these make understanding the code easier
+    # IMHO, keeping these makes understanding the code easier
     # minMonthlyPayment = monthlyPaymentRate * prevBalance
     # monthlyUnpaidBalance = prevBalance - minMonthlyPayment
     # newBalance = monthlyUnpaidBalance * (monthlyInterestRate + 1)
