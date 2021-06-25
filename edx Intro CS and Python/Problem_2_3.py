@@ -15,3 +15,5 @@ while True:
         high = fixedMonthlyPayment
 
 print(f"Lowest Payment: {round(fixedMonthlyPayment, 2)}")
+
+# Some comment I don't want to have
