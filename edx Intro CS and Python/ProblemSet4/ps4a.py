@@ -172,13 +172,6 @@ def isValidWord(word, hand, wordList):
     hand: dictionary (string -> int)
     wordList: list of lowercase strings
     """
-    # if word not in wordList:
-    #     return False
-    # remainingHand = updateHand(word, hand)
-    # for letter in word:
-    #     if letter not in remainingHand:
-    #         return False
-    # return True
     if word not in wordList:
         return False
     wordDict = getFrequencyDict(word)
@@ -199,7 +192,7 @@ def calculateHandlen(hand):
     hand: dictionary (string-> int)
     returns: integer
     """
-    return sum(val for key,val in hand.items())
+    return sum(val for key, val in hand.items())
 
 
 def playHand(hand, wordList, n):
@@ -229,7 +222,7 @@ def playHand(hand, wordList, n):
     # As long as there are still letters left in the hand:
     while calculateHandlen(hand) > 0:
         # Display the hand
-        print("Current Hand: ", end =" ")
+        print("Current Hand: ", end=" ")
         displayHand(hand)
         # Ask user for input
         new_word = input('Enter word, or a "." to indicate that you are finished:')
@@ -249,7 +242,8 @@ def playHand(hand, wordList, n):
         else:
             word_score = getWordScore(new_word, n)
             total_score += word_score
-            print('" '+new_word + ' " earned ' + str(word_score) + " points. Total: " + str(total_score) + " points\n")
+            print(
+                '" ' + new_word + ' " earned ' + str(word_score) + " points. Total: " + str(total_score) + " points\n")
             hand = updateHand(hand, new_word)
     if calculateHandlen(hand) <= 0:
         print("Run out of letters.", end=" ")

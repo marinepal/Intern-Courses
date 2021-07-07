@@ -130,7 +130,7 @@ def playGame(wordList):
         if symbol == 'e':
             return
         elif symbol == 'r' or symbol == 'n':
-            if symbol == 'r' and  hand is None:
+            if symbol == 'r' and hand is None:
                 print("You have not played a hand yet. Please play a new hand first!")
                 continue
             while True:
